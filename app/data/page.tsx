@@ -244,7 +244,7 @@ const taxConfig: ChartConfig = {
 /*  KPI CARDS                                                          */
 /* ------------------------------------------------------------------ */
 
-const kpis = [
+const kpis: { title: string; value: string; change: string; trend: "up" | "down" | "neutral" }[] = [
   {
     title: "Countries Covered",
     value: "7",
@@ -313,7 +313,7 @@ export default function DataPage() {
       <div className="max-w-[1600px] mx-auto px-[5vw] lg:px-10 pt-10 mb-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Select value={selectedCountry} onValueChange={setSelectedCountry}>
+            <Select value={selectedCountry} onValueChange={(val) => setSelectedCountry(val ?? "")}>
               <SelectTrigger className="w-[180px] bg-white border-neutral-200 rounded-xl">
                 <SelectValue placeholder="All Countries" />
               </SelectTrigger>
@@ -505,7 +505,7 @@ export default function DataPage() {
                     <CardDescription>Minimum investment thresholds (€K)</CardDescription>
                   </div>
                 </div>
-                <Select value={selectedProgramType} onValueChange={setSelectedProgramType}>
+                <Select value={selectedProgramType} onValueChange={(value) => setSelectedProgramType(value ?? "All")}>
                   <SelectTrigger className="w-[140px] bg-neutral-50 border-neutral-200 rounded-xl h-9 text-sm">
                     <SelectValue />
                   </SelectTrigger>
