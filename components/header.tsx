@@ -48,6 +48,7 @@ const NAV: NavItem[] = [
   { label: "Relocation", href: "#" },
   { label: "Business", href: "#" },
   { label: "Legal", href: "#" },
+  { label: "Cases", href: "/cases" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "#" },
   { label: "TEKCE Data", href: "/data" },
@@ -57,6 +58,7 @@ const NAV: NavItem[] = [
 const MOBILE_NAV: NavItem[] = [
   NAV[0], // Citizenship
   NAV[1], // Residence
+  { label: "Cases", href: "/cases" },
   { label: "Contact", href: "#" },
 ];
 

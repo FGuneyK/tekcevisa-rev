@@ -24,6 +24,7 @@ const footerLinks = {
   ],
   Company: [
     { label: "About TEKCE", href: "#" },
+    { label: "Case Studies", href: "/cases" },
     { label: "TEKCE Data", href: "/data" },
     { label: "Contact", href: "/contact" },
     { label: "Careers", href: "#" },
