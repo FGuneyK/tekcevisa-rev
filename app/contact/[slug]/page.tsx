@@ -122,9 +122,13 @@ export default async function OfficePage({ params }: Props) {
         <div className="max-w-[1600px] mx-auto px-[5vw] lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
             <div className="lg:col-span-5">
-              <p className="text-2xl md:text-[1.75rem] font-serif text-black leading-snug mb-12">
-                {office.intro}
-              </p>
+              <div className="space-y-5 mb-12">
+                {office.intro.split(/\n\s*\n/).map((para, i) => (
+                  <p key={i} className="text-neutral-600 text-[16px] font-light leading-relaxed">
+                    {para.trim()}
+                  </p>
+                ))}
+              </div>
               <div className={`${eyebrow} mb-6`}>Office Details</div>
               <div className="divide-y divide-neutral-100 border-y border-neutral-100">
                 {details.map(({ icon: Icon, label, body }) => (

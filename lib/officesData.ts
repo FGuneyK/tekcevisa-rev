@@ -2,8 +2,8 @@
 /*  OFFICES                                                            */
 /*  Addresses, phones, hours, map points and Google ratings are taken  */
 /*  as-is from https://tekce.com/corporate/contact (25.11.2026).       */
-/*  `intro` is the short text shown at the top of each office page —  */
-/*  edit it per office as needed.                                      */
+/*  `intro` is the text shown above the office details — edit it per   */
+/*  office. Separate paragraphs with a blank line.                     */
 /* ------------------------------------------------------------------ */
 
 export interface CountryContact {
@@ -77,7 +77,7 @@ export const offices: Office[] = [
   { slug: "malaga", title: "Málaga, Benalmádena", countryCode: "es", addressLines: ["C/El Montículo 8, 29631, Benalmádena", "Málaga, Spain"], lat: 36.601517, lng: -4.547938, mapsUrl: "https://maps.google.com/?cid=2201044622524160628", rating: "5.0", reviews: "45 Google reviews", intro: intro("Málaga, Benalmádena") },
   { slug: "alicante", title: "Alicante, Orihuela Costa", countryCode: "es", addressLines: ["Carretera de Villamartín 12, Urbanización La Zenia II, Casa 22, 03189, Orihuela Costa", "Alicante, Spain"], lat: 37.92588, lng: -0.734569, mapsUrl: "https://maps.google.com/?cid=2219642524627475945", rating: "4.9", reviews: "36 Google reviews", intro: intro("Alicante, Orihuela Costa") },
   // Türkiye
-  { slug: "antalya", title: "Antalya, Lara", countryCode: "tr", addressLines: ["Çağlayan Mah. Barınaklar Bulvarı No:5, Daire:3, 07235, Muratpaşa", "Antalya, Türkiye"], lat: 36.851911, lng: 30.762841, mapsUrl: "https://maps.google.com/?cid=5804274437706294206", rating: "5.0", reviews: "19 Google reviews", intro: intro("Antalya, Lara") },
+  { slug: "lara", title: "Antalya, Lara", countryCode: "tr", addressLines: ["Çağlayan Mah. Barınaklar Bulvarı No:5, Daire:3, 07235, Muratpaşa", "Antalya, Türkiye"], lat: 36.851911, lng: 30.762841, mapsUrl: "https://maps.google.com/?cid=5804274437706294206", rating: "5.0", reviews: "19 Google reviews", intro: intro("Antalya, Lara") },
   { slug: "konyaalti", title: "Antalya, Konyaaltı", countryCode: "tr", addressLines: ["Gürsu Mah. Atatürk Bulvarı No: 183, Mustafa Altunbaş İş Merkezi, Kat:4, Daire:8, 07070, Konyaaltı", "Antalya, Türkiye"], lat: 36.86309, lng: 30.631161, mapsUrl: "https://maps.google.com/?cid=3276089937592815968", rating: "4.9", reviews: "58 Google reviews", intro: intro("Antalya, Konyaaltı") },
   { slug: "alanya", title: "Antalya, Alanya", countryCode: "tr", addressLines: ["Kızlarpınarı Mah. Kızlarpınarı Cad. No:45/B, 07460, Alanya", "Antalya, Türkiye"], lat: 36.554279, lng: 31.979494, mapsUrl: "https://maps.google.com/?cid=10370120457761001819", rating: "5.0", reviews: "30 Google reviews", intro: intro("Antalya, Alanya") },
   { slug: "belek", title: "Antalya, Belek", countryCode: "tr", addressLines: ["Belek Mah. Köprü Cad. No:17/104, 07506, Serik", "Antalya, Türkiye"], lat: 36.865427, lng: 31.052071, mapsUrl: "https://maps.google.com/?cid=6239644079809342461", rating: "5.0", reviews: "41 Google reviews", intro: intro("Antalya, Belek") },
