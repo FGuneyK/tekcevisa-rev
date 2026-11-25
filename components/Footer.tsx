@@ -31,10 +31,26 @@ const footerLinks = {
   ],
 };
 
+// Each links to its office page (/contact/[slug], data in lib/officesData.ts)
 const offices = [
-  "Málaga", "Alicante", "Barcelona", "Antalya", "İstanbul", "Ankara",
-  "Bodrum", "Muğla", "Mersin", "Bursa", "Trabzon", "Yalova",
-  "İzmir", "Girne", "Dubai", "Stockholm"
+  { label: "Málaga", slug: "malaga" },
+  { label: "Alicante", slug: "alicante" },
+  { label: "Lara", slug: "lara" },
+  { label: "Konyaaltı", slug: "konyaalti" },
+  { label: "Alanya", slug: "alanya" },
+  { label: "Belek", slug: "belek" },
+  { label: "Cevizlibağ", slug: "cevizlibag" },
+  { label: "Göztepe", slug: "goztepe" },
+  { label: "Ankara", slug: "ankara" },
+  { label: "Bodrum", slug: "bodrum" },
+  { label: "Fethiye", slug: "fethiye" },
+  { label: "Mersin", slug: "mersin" },
+  { label: "Bursa", slug: "bursa" },
+  { label: "Trabzon", slug: "trabzon" },
+  { label: "Yalova", slug: "yalova" },
+  { label: "Girne", slug: "girne" },
+  { label: "Dubai", slug: "dubai" },
+  { label: "Stockholm", slug: "stockholm" },
 ];
 
 export function Footer() {
@@ -61,8 +77,13 @@ export function Footer() {
               <div className="text-[11px] text-white/30 uppercase tracking-wider font-medium mb-3">Global Offices</div>
               <div className="flex flex-wrap gap-x-5 gap-y-2">
                 {offices.map((office, idx) => (
-                  <div key={office} className="flex items-center gap-3">
-                    <span className="text-[13px] text-white/50">{office}</span>
+                  <div key={office.slug} className="flex items-center gap-3">
+                    <Link
+                      href={`/contact/${office.slug}`}
+                      className="text-[13px] text-white/50 hover:text-white transition-colors duration-200"
+                    >
+                      {office.label}
+                    </Link>
                     {idx < offices.length - 1 && <span className="w-1 h-1 rounded-full bg-white/10" />}
                   </div>
                 ))}
