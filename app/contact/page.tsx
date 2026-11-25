@@ -1,31 +1,12 @@
 "use client";
 
-import { MoveRight, Phone, Mail, MapPin } from "lucide-react";
+import Link from "next/link";
+import { MoveRight, MapPin } from "lucide-react";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
+import { offices, officesByCountry } from "@/lib/officesData";
 
 export default function ContactPage() {
-  const officeGroups = [
-    {
-      country: "Türkiye",
-      cities: ["İstanbul", "Antalya", "Ankara", "Bodrum", "Muğla", "Mersin", "Bursa", "Trabzon", "Yalova", "İzmir"],
-    },
-    {
-      country: "Spain",
-      cities: ["Málaga", "Alicante", "Barcelona"],
-    },
-    {
-      country: "United Arab Emirates",
-      cities: ["Dubai"],
-    },
-    {
-      country: "Cyprus",
-      cities: ["Girne"],
-    },
-    {
-      country: "Sweden",
-      cities: ["Stockholm"],
-    },
-  ];
+  const officeGroups = officesByCountry();
 
   return (
     <div className="min-h-screen bg-white">
@@ -144,16 +125,21 @@ export default function ContactPage() {
 
                 <div className="space-y-12">
                   {officeGroups.map((group) => (
-                    <div key={group.country}>
+                    <div key={group.code}>
                       <h4 className="text-lg font-serif text-black mb-5 flex items-center gap-3">
                         <MapPin size={16} className="text-accent" strokeWidth={1.5} />
                         {group.country}
                       </h4>
                       <ul className="flex flex-wrap gap-x-4 gap-y-3">
-                        {group.cities.map((city, idx) => (
-                          <li key={city} className="flex items-center gap-4">
-                            <span className="text-[15px] text-neutral-500 font-light">{city}</span>
-                            {idx < group.cities.length - 1 && (
+                        {group.offices.map((office, idx) => (
+                          <li key={office.slug} className="flex items-center gap-4">
+                            <Link
+                              href={`/contact/${office.slug}`}
+                              className="text-[15px] text-neutral-500 font-light hover:text-black transition-colors"
+                            >
+                              {office.title}
+                            </Link>
+                            {idx < group.offices.length - 1 && (
                               <span className="w-1 h-1 rounded-full bg-neutral-200" />
                             )}
                           </li>
@@ -165,7 +151,7 @@ export default function ContactPage() {
 
                 <div className="mt-16 pt-10 border-t border-neutral-100">
                   <p className="text-neutral-500 text-[14px] font-light leading-relaxed">
-                    Consultations are strictly confidential and tailored to your personal requirements. Meetings can be held physically at any of our 16 offices worldwide or virtually via a secure video link.
+                    Consultations are strictly confidential and tailored to your personal requirements. Meetings can be held physically at any of our {offices.length} offices worldwide or virtually via a secure video link.
                   </p>
                 </div>
               </div>
