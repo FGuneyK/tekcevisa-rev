@@ -61,30 +61,19 @@ export default async function OfficePage({ params }: Props) {
       ),
     },
     {
-      icon: Phone,
-      label: "Phone",
-      body: <a href={telHref(contact.phone)} className="hover:text-accent transition-colors">{contact.phone}</a>,
-    },
-    {
-      icon: MessageCircle,
-      label: "WhatsApp",
-      body: (
-        <a href={waHref(contact.whatsapp)} target="_blank" rel="noopener" className="hover:text-accent transition-colors">
-          {contact.whatsapp}
-        </a>
-      ),
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      body: <a href={`mailto:${contact.email}`} className="hover:text-accent transition-colors">{contact.email}</a>,
-    },
-    {
       icon: Clock,
       label: "Working Hours",
       body: contact.hours.map((h) => <span key={h} className="block">{h}</span>),
     },
   ];
+
+  const actions = [
+    { icon: Phone, label: "Call", value: contact.phone, href: telHref(contact.phone), external: false },
+    { icon: MessageCircle, label: "WhatsApp", value: contact.whatsapp, href: waHref(contact.whatsapp), external: true },
+    { icon: Mail, label: "Email", value: contact.email, href: `mailto:${contact.email}`, external: false },
+  ];
+
+  const paragraphs = office.intro.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
 
   return (
     <div className="min-h-screen bg-white">
@@ -122,11 +111,25 @@ export default async function OfficePage({ params }: Props) {
         <div className="max-w-[1600px] mx-auto px-[5vw] lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
             <div className="lg:col-span-5">
-              <div className="space-y-5 mb-12">
-                {office.intro.split(/\n\s*\n/).map((para, i) => (
-                  <p key={i} className="text-neutral-600 text-[16px] font-light leading-relaxed">
-                    {para.trim()}
-                  </p>
+              <div className={`${eyebrow} mb-6`}>Contact</div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-12">
+                {actions.map(({ icon: Icon, label, value, href, external }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    {...(external ? { target: "_blank", rel: "noopener" } : {})}
+                    className="group flex sm:flex-col items-center sm:items-start gap-4 sm:gap-5 bg-[#fcfcfc] border border-neutral-100 rounded-[1.5rem] p-5 hover:border-black transition-colors"
+                  >
+                    <span className="w-10 h-10 shrink-0 rounded-full bg-accent/10 text-accent flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                      <Icon size={17} strokeWidth={1.5} aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-[11px] text-neutral-400 uppercase tracking-[0.15em] font-medium mb-1">
+                        {label}
+                      </span>
+                      <span className="block text-[15px] font-serif text-black break-words">{value}</span>
+                    </span>
+                  </a>
                 ))}
               </div>
               <div className={`${eyebrow} mb-6`}>Office Details</div>
@@ -182,7 +185,7 @@ export default async function OfficePage({ params }: Props) {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="h-[380px] sm:h-[460px] lg:h-full lg:min-h-[560px] rounded-[2rem] overflow-hidden border border-neutral-100 bg-neutral-100">
+              <div className="lg:sticky lg:top-32 h-[380px] sm:h-[460px] lg:h-[600px] rounded-[2rem] overflow-hidden border border-neutral-100 bg-neutral-100">
                 <iframe
                   title={`Map of the ${office.title} office`}
                   src={mapEmbedUrl(office)}
@@ -196,6 +199,21 @@ export default async function OfficePage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Office text */}
+      {paragraphs.length > 0 && (
+        <section className="pb-20 md:pb-24 bg-white">
+          <div className="max-w-[1600px] mx-auto px-[5vw] lg:px-10">
+            <div className="max-w-[720px] border-t border-neutral-100 pt-12 md:pt-16 space-y-6">
+              {paragraphs.map((para, i) => (
+                <p key={i} className="text-neutral-600 text-[17px] font-light leading-[1.8]">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Contact form + other offices */}
       <section className="pb-24 bg-white">
