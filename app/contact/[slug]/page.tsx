@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { MapPin, Phone, Mail, Clock, Star, ArrowUpRight, MoveLeft } from "lucide-react";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
 import { OfficeContactForm } from "@/components/OfficeContactForm";
+import { OfficeIntro } from "@/components/OfficeIntro";
 import {
   offices,
   getOffice,
@@ -202,12 +203,8 @@ export default async function OfficePage({ params }: Props) {
       {paragraphs.length > 0 && (
         <section className="pb-20 md:pb-24 bg-white">
           <div className="max-w-[1600px] mx-auto px-[5vw] lg:px-10">
-            <div className="max-w-[720px] border-t border-neutral-100 pt-12 md:pt-16 space-y-6">
-              {paragraphs.map((para, i) => (
-                <p key={i} className="text-neutral-600 text-[17px] font-light leading-[1.8]">
-                  {para}
-                </p>
-              ))}
+            <div className="max-w-[720px] border-t border-neutral-100 pt-12 md:pt-16">
+              <OfficeIntro paragraphs={paragraphs} />
             </div>
           </div>
         </section>

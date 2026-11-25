@@ -64,6 +64,20 @@ export const countryContacts: Record<CountryCode, CountryContact> = {
 const intro = (title: string) =>
   `Visit our ${title} office or reach us by phone or e-mail. Our team will get back to you soon.`;
 
+const cevizlibagIntro = `Welcome to the contact page of Tekce Visa’s Istanbul, Cevizlibag office. On this page, you may find all the contact information to get in touch with our consultants in the Cevizlibag office. Our professional team experienced in residency applications, citizenship, immigration, and overseas law are located here to give the best possible services.
+
+We have 2 offices in Istanbul. While the Cevizlibag office is on the European side, we have the Goztepe office on the Asian side. By having 2 offices on each side of Istanbul, we are always easily accessible to our customers.
+
+Our team of overseas law experts gives the best consultancy to ensure %100 Happiness for our clients. Our team understands your needs and desires in your situation. Our consultants always work on a case basis to give the most tailored solutions.
+
+You may reach our Cevizlibag office anytime by using all possible methods. You may call us, send an e-mail, or easily fill out the contact form. We will reach you as soon as possible. After the first contact, we will learn about your situation and give the first information in the beginning.
+
+Our company values are based on Goodness with %100 customer happiness and Excellence with zero failure. So, you will experience professional consultancy beginning from the first contact with our expert consultants.
+
+We understand that dealing with overseas laws is mostly challenging. Our professional consultants speaking in your language have years of experience in citizenship applications, residence permits, the law of succession and obligations for foreigners, and immigration.
+
+You may use the following contact options to arrange a meeting with our consultants. You may also visit our office to meet in person first. We will be happily waiting to give you the best overseas legal consultation services.`;
+
 export const offices: Office[] = [
   // Spain
   { slug: "malaga", title: "Málaga, Benalmádena", countryCode: "es", addressLines: ["C/El Montículo 8, 29631, Benalmádena", "Málaga, Spain"], lat: 36.601517, lng: -4.547938, mapsUrl: "https://maps.google.com/?cid=2201044622524160628", rating: "5.0", reviews: "45 Google reviews", intro: intro("Málaga, Benalmádena") },
@@ -73,7 +87,7 @@ export const offices: Office[] = [
   { slug: "konyaalti", title: "Antalya, Konyaaltı", countryCode: "tr", addressLines: ["Gürsu Mah. Atatürk Bulvarı No: 183, Mustafa Altunbaş İş Merkezi, Kat:4, Daire:8, 07070, Konyaaltı", "Antalya, Türkiye"], lat: 36.86309, lng: 30.631161, mapsUrl: "https://maps.google.com/?cid=3276089937592815968", rating: "4.9", reviews: "58 Google reviews", intro: intro("Antalya, Konyaaltı") },
   { slug: "alanya", title: "Antalya, Alanya", countryCode: "tr", addressLines: ["Kızlarpınarı Mah. Kızlarpınarı Cad. No:45/B, 07460, Alanya", "Antalya, Türkiye"], lat: 36.554279, lng: 31.979494, mapsUrl: "https://maps.google.com/?cid=10370120457761001819", rating: "5.0", reviews: "30 Google reviews", intro: intro("Antalya, Alanya") },
   { slug: "belek", title: "Antalya, Belek", countryCode: "tr", addressLines: ["Belek Mah. Köprü Cad. No:17/104, 07506, Serik", "Antalya, Türkiye"], lat: 36.865427, lng: 31.052071, mapsUrl: "https://maps.google.com/?cid=6239644079809342461", rating: "5.0", reviews: "41 Google reviews", intro: intro("Antalya, Belek") },
-  { slug: "cevizlibag", title: "İstanbul, Cevizlibağ", countryCode: "tr", addressLines: ["Maltepe Mah. Yedikule Çırpıcı Yolu Sok. No:2, Avrupa Ofis Blok, Ofis:12, 34010, Cevizlibağ, Zeytinburnu", "İstanbul, Türkiye"], lat: 41.018456, lng: 28.911135, mapsUrl: "https://maps.google.com/?cid=8371847751493865513", rating: "4.7", reviews: "27 Google reviews", intro: intro("İstanbul, Cevizlibağ") },
+  { slug: "cevizlibag", title: "İstanbul, Cevizlibağ", countryCode: "tr", addressLines: ["Maltepe Mah. Yedikule Çırpıcı Yolu Sok. No:2, Avrupa Ofis Blok, Ofis:12, 34010, Cevizlibağ, Zeytinburnu", "İstanbul, Türkiye"], lat: 41.018456, lng: 28.911135, mapsUrl: "https://maps.google.com/?cid=8371847751493865513", rating: "4.7", reviews: "27 Google reviews", intro: cevizlibagIntro },
   { slug: "goztepe", title: "İstanbul, Göztepe", countryCode: "tr", addressLines: ["Merdivenköy Mah. Nur Sok. Business Istanbul A Blok, No:1/A/410, 34732, Göztepe, Kadıköy", "İstanbul, Türkiye"], lat: 40.993099, lng: 29.067157, mapsUrl: "https://maps.google.com/?cid=195779195448329720", rating: "4.9", reviews: "42 Google reviews", intro: intro("İstanbul, Göztepe") },
   { slug: "ankara", title: "Ankara", countryCode: "tr", addressLines: ["Kızılırmak Mah. Ufuk Üniversitesi Cad. 1445 Sokak No:2, Paragon Tower B134, 06530, Çankaya", "Ankara, Türkiye"], lat: 39.909076, lng: 32.812504, mapsUrl: "https://maps.google.com/?cid=3911578933100692362", rating: "5.0", reviews: "28 Google reviews", intro: intro("Ankara") },
   { slug: "bodrum", title: "Muğla, Bodrum", countryCode: "tr", addressLines: ["Konacık Mah. Atatürk Bulvarı No:285/1B, 48480, Bodrum", "Muğla, Türkiye"], lat: 37.055347, lng: 27.370211, mapsUrl: "https://maps.google.com/?cid=4006659624499223293", rating: "4.9", reviews: "71 Google reviews", intro: intro("Muğla, Bodrum") },
