@@ -112,13 +112,13 @@ export default async function OfficePage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
             <div className="lg:col-span-5">
               <div className={`${eyebrow} mb-6`}>Contact</div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-3 mb-12">
                 {actions.map(({ icon: Icon, label, value, href, external }) => (
                   <a
                     key={label}
                     href={href}
                     {...(external ? { target: "_blank", rel: "noopener" } : {})}
-                    className="group flex sm:flex-col items-center sm:items-start gap-4 sm:gap-5 bg-[#fcfcfc] border border-neutral-100 rounded-[1.5rem] p-5 hover:border-black transition-colors"
+                    className="group flex sm:flex-col lg:flex-row xl:flex-col items-center sm:items-start lg:items-center xl:items-start gap-4 sm:gap-5 lg:gap-4 xl:gap-5 bg-[#fcfcfc] border border-neutral-100 rounded-[1.5rem] p-5 hover:border-black transition-colors"
                   >
                     <span className="w-10 h-10 shrink-0 rounded-full bg-accent/10 text-accent flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
                       <Icon size={17} strokeWidth={1.5} aria-hidden="true" />
@@ -127,7 +127,7 @@ export default async function OfficePage({ params }: Props) {
                       <span className="block text-[11px] text-neutral-400 uppercase tracking-[0.15em] font-medium mb-1">
                         {label}
                       </span>
-                      <span className="block text-[15px] font-serif text-black break-words">{value}</span>
+                      <span className="block text-[15px] font-serif text-black whitespace-nowrap">{value}</span>
                     </span>
                   </a>
                 ))}
