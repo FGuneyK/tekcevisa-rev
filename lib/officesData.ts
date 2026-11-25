@@ -1,18 +1,25 @@
 /* ------------------------------------------------------------------ */
 /*  OFFICES                                                            */
-/*  Addresses, phones, hours, map points and Google ratings are taken  */
-/*  as-is from https://tekce.com/corporate/contact (25.11.2026).       */
+/*  Addresses, hours, map points and Google ratings are taken as-is    */
+/*  from https://tekce.com/corporate/contact (25.11.2026).             */
+/*  Phones and e-mail are TEKCE Visa's (see `visaContact`).            */
 /*  `intro` is the text shown above the office details — edit it per   */
 /*  office. Separate paragraphs with a blank line.                     */
 /* ------------------------------------------------------------------ */
 
 export interface CountryContact {
   country: string;
-  phone: string;
-  whatsapp: string;
-  email: string;
   hours: string[];
 }
+
+/** Phones and e-mail shown on every office page — same as tekcevisa.com/contact/* */
+export const visaContact = {
+  email: "info@tekcevisa.com",
+  phones: [
+    { label: "Spain", number: "+34 951 74 45 44" },
+    { label: "Türkiye", number: "+90 212 912 55 77" },
+  ],
+};
 
 export interface Office {
   slug: string;
@@ -34,43 +41,28 @@ export type CountryCode = "es" | "tr" | "cy" | "ae" | "se";
 export const countryContacts: Record<CountryCode, CountryContact> = {
   es: {
     country: "Spain",
-    phone: "+34 951 83 02 02",
-    whatsapp: "+34 655 05 33 53",
-    email: "info@tekce.com",
     hours: ["09:00 - 18:00 Monday - Friday", "10:00 - 15:00 Saturday"],
   },
   tr: {
     country: "Türkiye",
-    phone: "+90 850 811 23 23",
-    whatsapp: "+90 537 040 44 44",
-    email: "info@tekce.com",
     hours: ["08:30 - 18:00 Monday - Friday", "10:00 - 15:00 Saturday"],
   },
   cy: {
     country: "Cyprus",
-    phone: "+90 850 811 23 23",
-    whatsapp: "+90 537 040 44 44",
-    email: "info@tekce.com",
     hours: ["08:30 - 18:00 Monday - Friday", "10:00 - 15:00 Saturday"],
   },
   ae: {
     country: "United Arab Emirates",
-    phone: "+971 521 958 490",
-    whatsapp: "+971 521 958 490",
-    email: "info@tekce.com",
     hours: ["09:00 - 18:00 Monday - Friday", "10:00 - 15:00 Saturday"],
   },
   se: {
     country: "Sweden",
-    phone: "+46 8 420 022 44",
-    whatsapp: "+1 380 888 3523",
-    email: "info@tekce.com",
     hours: ["08:30 - 18:00 Monday - Friday", "10:00 - 15:00 Saturday"],
   },
 };
 
 const intro = (title: string) =>
-  `Visit our ${title} office or reach us by phone, WhatsApp or e-mail. Our team will get back to you soon.`;
+  `Visit our ${title} office or reach us by phone or e-mail. Our team will get back to you soon.`;
 
 export const offices: Office[] = [
   // Spain
@@ -118,4 +110,3 @@ export function mapEmbedUrl(o: Office) {
 }
 
 export const telHref = (n: string) => `tel:${n.replace(/[^\d+]/g, "")}`;
-export const waHref = (n: string) => `https://wa.me/${n.replace(/\D/g, "")}`;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MapPin, Phone, Mail, Clock, MessageCircle, Star, ArrowUpRight, MoveLeft } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Star, ArrowUpRight, MoveLeft } from "lucide-react";
 import { ConsultationCTA } from "@/components/ConsultationCTA";
 import { OfficeContactForm } from "@/components/OfficeContactForm";
 import {
@@ -11,7 +11,7 @@ import {
   officesByCountry,
   mapEmbedUrl,
   telHref,
-  waHref,
+  visaContact,
 } from "@/lib/officesData";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -68,9 +68,8 @@ export default async function OfficePage({ params }: Props) {
   ];
 
   const actions = [
-    { icon: Phone, label: "Call", value: contact.phone, href: telHref(contact.phone), external: false },
-    { icon: MessageCircle, label: "WhatsApp", value: contact.whatsapp, href: waHref(contact.whatsapp), external: true },
-    { icon: Mail, label: "Email", value: contact.email, href: `mailto:${contact.email}`, external: false },
+    ...visaContact.phones.map((p) => ({ icon: Phone, label: p.label, value: p.number, href: telHref(p.number) })),
+    { icon: Mail, label: "Email", value: visaContact.email, href: `mailto:${visaContact.email}` },
   ];
 
   const paragraphs = office.intro.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
@@ -113,11 +112,10 @@ export default async function OfficePage({ params }: Props) {
             <div className="lg:col-span-5">
               <div className={`${eyebrow} mb-6`}>Contact</div>
               <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-3 mb-12">
-                {actions.map(({ icon: Icon, label, value, href, external }) => (
+                {actions.map(({ icon: Icon, label, value, href }) => (
                   <a
                     key={label}
                     href={href}
-                    {...(external ? { target: "_blank", rel: "noopener" } : {})}
                     className="group flex sm:flex-col lg:flex-row xl:flex-col items-center sm:items-start lg:items-center xl:items-start gap-4 sm:gap-5 lg:gap-4 xl:gap-5 bg-[#fcfcfc] border border-neutral-100 rounded-[1.5rem] p-5 hover:border-black transition-colors"
                   >
                     <span className="w-10 h-10 shrink-0 rounded-full bg-accent/10 text-accent flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
